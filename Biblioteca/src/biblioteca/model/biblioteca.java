@@ -8,20 +8,17 @@ import biblioteca.model.Livro;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 /**
  *
  * @author aaron
  */
 public class biblioteca {
-
     private List<Livro> acervo; // Lista de livros na biblioteca
     Scanner scanner = new Scanner(System.in);
 
     public biblioteca() {
         acervo = new ArrayList<>();
     }
-
     public void adicionarLivro(Livro livro) {
         System.out.print("Digite o título do livro: ");
         livro.setTitulo(scanner.nextLine());
@@ -44,7 +41,6 @@ public class biblioteca {
             System.out.println(); // Adicione uma linha em branco para separar os livros
         }
     }
-
     public void alocarLivro(String titulo) {
         for (Livro livro : acervo) {
             if (livro.getTitulo().equalsIgnoreCase(titulo)) {
@@ -58,5 +54,22 @@ public class biblioteca {
             }
         }
         System.out.println("Livro não encontrado na biblioteca.");
+    }
+    
+    public void devolverLivro(String Titulo){
+     for(Livro livro : acervo){
+      if(livro.getTitulo().equalsIgnoreCase(Titulo)){
+       if(livro.isDisponibilidade()==false){
+        livro.setDisponibilidade(true);
+        System.out.println("Livro devolvido com sucesso!");
+       }else{
+       System.out.println("Livro Já foi devolvido");
+
+       }
+       return;
+      }
+      
+     }
+    System.out.println("Livro não encontrado na biblioteca.");
     }
 }

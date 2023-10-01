@@ -6,15 +6,12 @@ package biblioteca;
 
 import biblioteca.model.Livro;
 import biblioteca.model.biblioteca;
-import java.util.ArrayList;
 import java.util.Scanner;
-
 /**
  *
  * @author aaron
  */
 public class Biblioteca {
-
     /**
      * @param args the command line arguments
      */
@@ -29,8 +26,8 @@ public class Biblioteca {
             System.out.println("1. Adicionar um novo livro");
             System.out.println("2. Listar todos os livros");
             System.out.println("3. Alocar um livro");
-            //System.out.println("5. Devolver um livro emprestado");
-            System.out.println("4. Sair");
+            System.out.println("4. Devolver um livro emprestado");
+            System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
 
             int opcao = scanner.nextInt();
@@ -49,6 +46,10 @@ public class Biblioteca {
                  bb.alocarLivro(titulo);
                  break;
                 case 4:
+                 System.out.print("Digite o título do livro: ");
+                 titulo = scanner.nextLine();
+                 bb.devolverLivro(titulo);
+                case 5:
                     e= false;
             }
         }
